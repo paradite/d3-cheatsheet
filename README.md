@@ -3,9 +3,9 @@
 ## d3.js quick reference sheet
 
 ### Table of contents
-[Attributes/Styles](#attributesstyles)
-[Axis](#axis)
-[Time parsing/formatting](#time-parsingformatting)
+- [Attributes/Styles](#attributesstyles)
+- [Axis](#axis)
+- [Time parsing/formatting](#time-parsingformatting)
 
 ### Attributes/Styles
 ```javascript
