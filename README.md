@@ -9,6 +9,7 @@
 - [Time parsing/formatting](#time-parsingformatting)
 - [Color](#color)
 - [General Update Pattern](#general-update-pattern)
+- [Transition](#transition)
 
 ### Attributes/Styles
 #### Attributes/Styles - initialization
@@ -108,4 +109,29 @@ function update(data) {
   // Remove old elements as needed.
   text.exit().remove();
 }
+```
+### Transition
+#### Chaining transition
+```javascript
+function endall(transition, callback) {
+    if (transition.size() === 0) {
+        callback()
+    }
+    var n = 0;
+    transition
+        .each(function() {
+            ++n;
+        })
+        .each("end", function() {
+            if (!--n) callback.apply(this, arguments);
+        });
+}
+
+selection.transition()
+    .attr("cx", xMap)
+    .attr("cy", yMap)
+    .call(endall, function() { 
+        console.log("all loaded");
+        // do your next transition
+    });
 ```
