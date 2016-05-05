@@ -4,10 +4,12 @@
 
 ### Table of contents
 - [Attributes/Styles](#attributesstyles)
+- [Properties](#properties)
 - [Axis](#axis)
 - [Time parsing/formatting](#time-parsingformatting)
 
 ### Attributes/Styles
+#### Attributes/Styles - initialization
 ```javascript
 var svgWrapper = d3.select("body")
   .append("svg")
@@ -26,6 +28,12 @@ this.attr("r", style.r)
   .attr("fill", style.fill)
   .attr("stroke", style.color)
   .attr("stroke-width", style["stroke-width"])
+```
+
+### Properties
+```javascript
+var id = d3.select("#id").property("value");
+d3.select("input").property("value", d3.event.keyCode);
 ```
 
 ### Axis
