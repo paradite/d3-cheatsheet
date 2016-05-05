@@ -8,6 +8,7 @@
 - [Axis](#axis)
 - [Time parsing/formatting](#time-parsingformatting)
 - [Color](#color)
+- [General Update Pattern](#generalupdatepattern)
 
 ### Attributes/Styles
 #### Attributes/Styles - initialization
@@ -75,4 +76,36 @@ var myCategory20Colors = [
 var myCategory20 = d3.scale.ordinal().range(myCategory20Colors);
 console.log(myCategory20("x"), myCategory20("y"));
 // #1f77b4 #aec7e8
+```
+
+### General Update Pattern
 ```javascript
+function update(data) {
+
+  // DATA JOIN
+  // Join new data with old elements, if any.
+  var text = svg.selectAll("text")
+      .data(data);
+
+  // UPDATE
+  // Update old elements as needed.
+  text.attr("class", "update");
+
+  // ENTER
+  // Create new elements as needed.
+  text.enter().append("text")
+      .attr("class", "enter")
+      .attr("x", function(d, i) { return i * 32; })
+      .attr("dy", ".35em");
+
+  // ENTER + UPDATE
+  // Appending to the enter selection expands the update selection to include
+  // entering elements; so, operations on the update selection after appending to
+  // the enter selection will apply to both entering and updating nodes.
+  text.text(function(d) { return d; });
+
+  // EXIT
+  // Remove old elements as needed.
+  text.exit().remove();
+}
+```
