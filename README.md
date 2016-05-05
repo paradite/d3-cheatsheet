@@ -7,6 +7,7 @@
 - [Properties](#properties)
 - [Axis](#axis)
 - [Time parsing/formatting](#time-parsingformatting)
+- [Color](#color)
 
 ### Attributes/Styles
 #### Attributes/Styles - initialization
@@ -53,4 +54,25 @@ var parseDate = d3.time.format("%Y-%m-%dT%H:%M:%SZ").parse,
   formatDateForQuery = d3.time.format("%Y-%m-%dT%H:%M:%SZ"),
   formatTime = d3.time.format("%H:%M:%S");
 ```
+### Color
+#### Custom color ordinal scale
+```javascript
+var myCategory20Colors = [
+  0x1f77b4, 0xaec7e8,
+  0xff7f0e, 0xffbb78,
+  0x2ca02c, 0x98df8a,
+  0xd62728, 0xff9896,
+  0x9467bd, 0xc5b0d5,
+  0x8c564b, 0xc49c94,
+  0xe377c2, 0xf7b6d2,
+  0xbcbd22, 0xdbdb8d,
+  0x17becf, 0x9edae5
+].map(function(x) {
+    var value = x + "";
+    return d3.rgb(value >> 16, value >> 8 & 0xff, value & 0xff).toString();
+});
 
+var myCategory20 = d3.scale.ordinal().range(myCategory20Colors);
+console.log(myCategory20("x"), myCategory20("y"));
+// #1f77b4 #aec7e8
+```javascript
