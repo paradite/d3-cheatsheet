@@ -8,7 +8,7 @@
 - [Axis](#axis)
 - [Time parsing/formatting](#time-parsingformatting)
 - [Color](#color)
-- [General Update Pattern](#generalupdatepattern)
+- [General Update Pattern](#general-update-pattern)
 
 ### Attributes/Styles
 #### Attributes/Styles - initialization
