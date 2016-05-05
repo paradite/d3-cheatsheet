@@ -70,8 +70,8 @@ var myCategory20Colors = [
   0xbcbd22, 0xdbdb8d,
   0x17becf, 0x9edae5
 ].map(function(x) {
-    var value = x + "";
-    return d3.rgb(value >> 16, value >> 8 & 0xff, value & 0xff).toString();
+  var value = x + "";
+  return d3.rgb(value >> 16, value >> 8 & 0xff, value & 0xff).toString();
 });
 
 var myCategory20 = d3.scale.ordinal().range(myCategory20Colors);
@@ -86,7 +86,7 @@ function update(data) {
   // DATA JOIN
   // Join new data with old elements, if any.
   var text = svg.selectAll("text")
-      .data(data);
+    .data(data);
 
   // UPDATE
   // Update old elements as needed.
@@ -95,9 +95,9 @@ function update(data) {
   // ENTER
   // Create new elements as needed.
   text.enter().append("text")
-      .attr("class", "enter")
-      .attr("x", function(d, i) { return i * 32; })
-      .attr("dy", ".35em");
+    .attr("class", "enter")
+    .attr("x", function(d, i) { return i * 32; })
+    .attr("dy", ".35em");
 
   // ENTER + UPDATE
   // Appending to the enter selection expands the update selection to include
@@ -114,24 +114,24 @@ function update(data) {
 #### Chaining transition
 ```javascript
 function endall(transition, callback) {
-    if (transition.size() === 0) {
-        callback()
-    }
-    var n = 0;
-    transition
-        .each(function() {
-            ++n;
-        })
-        .each("end", function() {
-            if (!--n) callback.apply(this, arguments);
-        });
+  if (transition.size() === 0) {
+    callback()
+  }
+  var n = 0;
+  transition
+    .each(function() {
+      ++n;
+    })
+    .each("end", function() {
+      if (!--n) callback.apply(this, arguments);
+    });
 }
 
 selection.transition()
-    .attr("cx", xMap)
-    .attr("cy", yMap)
-    .call(endall, function() { 
-        console.log("all loaded");
-        // do your next transition
-    });
+  .attr("cx", xMap)
+  .attr("cy", yMap)
+  .call(endall, function() { 
+    console.log("all loaded");
+    // do your next transition
+  });
 ```
