@@ -4,6 +4,8 @@
 
 ### Table of contents
 - [Attributes/Styles](#attributesstyles)
+- [Classes](#classes)
+- [Link/Href](#linkhref)
 - [Properties](#properties)
 - [Axis](#axis)
 - [Time parsing/formatting](#time-parsingformatting)
@@ -27,10 +29,38 @@ var container = svgWrapper.append("g")
 
 #### Attributes/Styles - circle
 ```javascript
-this.attr("r", style.r)
+selection.attr("r", style.r)
   .attr("fill", style.fill)
   .attr("stroke", style.color)
   .attr("stroke-width", style["stroke-width"])
+```
+
+### Classes
+```javascript
+selection.classed('my-class', true);
+```
+
+### Link/Href
+
+#### In SVG
+```javascript
+selection.select('text')
+  .text(function(d) {
+    return d.name;
+  })
+  .attr("xlink:href", function(d){
+    return d.url;});
+```
+#### In HTML
+```javascript
+selection
+  .append('a')
+  .attr('href', function(d) {
+    return d.url;
+  })
+  .text(function(d) {
+    return d.name;
+  });
 ```
 
 ### Properties
