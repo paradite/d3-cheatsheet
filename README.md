@@ -3,6 +3,7 @@
 ## d3.js quick reference sheet
 
 ### Table of contents
+
 - [Attributes/Styles](#attributesstyles)
 - [Classes](#classes)
 - [Link/Href](#linkhref)
@@ -14,7 +15,9 @@
 - [Transition](#transition)
 
 ### Attributes/Styles
+
 #### Attributes/Styles - initialization
+
 ```javascript
 var svgWrapper = d3.select("body")
   .append("svg")
@@ -28,6 +31,7 @@ var container = svgWrapper.append("g")
 ```
 
 #### Attributes/Styles - circle
+
 ```javascript
 selection.attr("r", style.r)
   .attr("fill", style.fill)
@@ -36,6 +40,7 @@ selection.attr("r", style.r)
 ```
 
 ### Classes
+
 ```javascript
 selection.classed('my-class', true);
 ```
@@ -43,6 +48,7 @@ selection.classed('my-class', true);
 ### Link/Href
 
 #### In SVG
+
 ```javascript
 selection.select('text')
   .text(function(d) {
@@ -52,6 +58,7 @@ selection.select('text')
     return d.url;});
 ```
 #### In HTML
+
 ```javascript
 selection
   .append('a')
@@ -64,12 +71,14 @@ selection
 ```
 
 ### Properties
+
 ```javascript
 var id = d3.select("#id").property("value");
 d3.select("input").property("value", d3.event.keyCode);
 ```
 
 ### Axis
+
 ```javascript
 var xAxis = d3.svg.axis()
   .scale(_xScale)
@@ -80,14 +89,18 @@ var xAxis = d3.svg.axis()
 ```
 
 ### Time parsing/formatting
+
 ```javascript
 var parseDate = d3.time.format("%Y-%m-%dT%H:%M:%SZ").parse,
   formatDate = d3.time.format("%d %b %H:%M:%S"),
   formatDateForQuery = d3.time.format("%Y-%m-%dT%H:%M:%SZ"),
   formatTime = d3.time.format("%H:%M:%S");
 ```
+
 ### Color
+
 #### Custom color ordinal scale
+
 ```javascript
 var myCategory20Colors = [
   0x1f77b4, 0xaec7e8,
@@ -110,6 +123,7 @@ console.log(myCategory20("x"), myCategory20("y"));
 ```
 
 ### General Update Pattern
+
 ```javascript
 function update(data) {
 
@@ -140,8 +154,11 @@ function update(data) {
   text.exit().remove();
 }
 ```
+
 ### Transition
+
 #### Chaining transition
+
 ```javascript
 function endall(transition, callback) {
   if (transition.size() === 0) {
@@ -165,3 +182,6 @@ selection.transition()
     // do your next transition
   });
 ```
+
+[source](https://stackoverflow.com/questions/10692100/invoke-a-callback-at-the-end-of-a-transition)
+[demo](http://paradite.github.io/d3-cheatsheet/)
