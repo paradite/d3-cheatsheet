@@ -185,3 +185,13 @@ selection.transition()
 
 [source](https://stackoverflow.com/questions/10692100/invoke-a-callback-at-the-end-of-a-transition)
 [demo](http://paradite.github.io/d3-cheatsheet/)
+
+
+---
+
+## Other cheatsheets
+- [bash-cheatsheet](https://github.com/paradite/bash-cheatsheet)
+
+## License
+
+MIT
